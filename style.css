@@ -742,78 +742,82 @@ body {
 }
 
 }
-/* Add your external CSS styles here */
-body {
-  font-family: "Open Sans";
-  line-height: 1.618em;
+.warpper{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
 }
-
-.wrapper {
-  max-width: 85rem;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.tabs {
-  position: relative;
-  margin: 3rem 0;
-  height: 14.75rem;
-}
-
-.tabs::before,
-.tabs::after {
-  content: "";
-  display: table;
-}
-
-.tabs::after {
-  clear: both;
-}
-
-.tab {
-  float: left;
-  width: calc(100% / 14);
-}
-
-.tab-switch {
-  display: none;
-}
-
-.tab-label {
-  position: relative;
-  display: block;
-  line-height: 2.75em;
-  height: 3em;
-  padding: 0 1.618em;
-  background: #a79e84;
-  color: #fff;
+.tab{
   cursor: pointer;
-  top: 0;
-  transition: all 0.25s;
+  padding:10px 20px;
+  margin:0px 2px;
+  
+  display:inline-block;
+  background: #a79e84;
+  border-radius:3px 3px 0px 0px;
+  box-shadow: 0 0.5rem 0.8rem #00000080;
 }
+.panels{
+  background:#fffffff6;
+  height:30rem;
+  width:1250px;
+  border-radius:3px;
+  overflow:hidden;
+  padding:20px;
+  position: relative;
 
-.tab-label:hover {
-  top: -0.25rem;
-  transition: top 0.25s;
 }
-
-.tab-content {
-  height: 30rem; /* Adjust the height as needed */
-  position: absolute;
-  z-index: 1;
-  top: 3em;
-  left: 0;
-  padding: 1.618rem;
-  background: #fff;
-  color: #2c3e50;
-  border-bottom: 0.25rem solid #bdc3c7;
-  opacity: 0;
-  transition: all 0.35s;
+.panel{
+  display:none;
+  animation: fadein .8s;
 }
-
-.tab-text {
-  width: 60%; /* Adjust as needed */
-  float: left;
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+.panel-title{
+  font-size:1.5em;
+  font-weight:bold
+  
+}
+.radio{
+  display:none;
+}
+#one:checked ~ .panels #one-panel,
+#four:checked ~ .panels #four-panel,
+#five:checked ~ .panels #five-panel,
+#six:checked ~ .panels #six-panel,
+#seven:checked ~ .panels #seven-panel,
+#eight:checked ~ .panels #eight-panel,
+#nine:checked ~ .panels #nine-panel,
+#ten:checked ~ .panels #ten-panel,
+#eleven:checked ~ .panels #eleven-panel,
+#twelve:checked ~ .panels #twelve-panel,
+#thirteen:checked ~ .panels #thirteen-panel,
+#two:checked ~ .panels #two-panel,
+#three:checked ~ .panels #three-panel{
+  display:block
+}
+#one:checked ~ .tabs #one-tab,
+#four:checked ~ .tabs #four-tab,
+#five:checked ~ .tabs #five-tab,
+#six:checked ~ .tabs #six-tab,
+#seven:checked ~ .tabs #seven-tab,
+#eight:checked ~ .tabs #eight-tab,
+#nine:checked ~ .tabs #nine-tab,
+#ten:checked ~ .tabs #ten-tab,
+#eleven:checked ~ .tabs #eleven-tab,
+#twelve:checked ~ .tabs #twelve-tab,
+#thirteen:checked ~ .tabs #thirteen-tab,
+#two:checked ~ .tabs #two-tab,
+#three:checked ~ .tabs #three-tab{
+  background:#fffffff6;
+  color:#000;
+  border-top: 3px solid #000;
 }
 
 .tab-image {
@@ -823,18 +827,7 @@ body {
   padding-top: 1rem;
 }
 
-.tab-switch:checked + .tab-label {
-  background: #e3e0cc;
-  color: #2c3e50;
-  border-bottom: 0;
-  border-right: 0.125rem solid #fff;
-  transition: all 0.35s;
-  z-index: 1;
-  top: -0.0625rem;
-}
-
-.tab-switch:checked + label + .tab-content {
-  z-index: 2;
-  opacity: 1;
-  transition: all 0.35s;
+.tab-text {
+  width: 60%; /* Adjust as needed */
+  float: left;
 }
